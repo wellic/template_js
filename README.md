@@ -1,5 +1,5 @@
 # template_js
-2 versions of micro template system for javascript
+2 versions of micro template system for javascript without dependencies.
 
 Initial sources:
   * http://ejohn.org/blog/javascript-micro-templating/

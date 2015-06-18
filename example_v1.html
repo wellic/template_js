@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Template with JS - jsFiddle demo by wellic</title>
+  
+<script type="text/template" id="template">
+  <div>
+  <h2 class='header'><#= _.header #></h2>
+    <ul class='list'>
+      <# for (var i = 0, l = _.list.length; i < l; i++) { #>
+        <li class='item'><#= _.list[i] #></li>
+      <# } #>
+    </ul>
+  </div>
+</script>
+
+</head>
+
+<body>
+<h1>Tests:</h1>
+<div id="results"><div>
+
+
+<script type="text/javascript" src="template_v1.js"></script>
+
+</body>
+</html>
