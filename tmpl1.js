@@ -1,8 +1,8 @@
-var mTmpl1 = (function() {
+var mtemplate = (function() {
   var fncache = { };
 
   return {
-    parseTemplate : function (id, data) {
+    parse : function (id, data) {
         var cacheId = 't1_' + id;
         if ( !fncache[cacheId] ) {
             fncache[cacheId] = new Function("_",

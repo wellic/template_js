@@ -7,7 +7,7 @@
 
     document.getElementById("results").innerHTML = "<hr />";
 
-    var t1 = mTmpl1.parseTemplate('template');
+    var t1 = mtemplate.parse('template');
     document.getElementById("results").innerHTML += t1(o) + "<hr />";
     document.getElementById("results").innerHTML += t1(
         {
@@ -15,7 +15,7 @@
             list : ["l1", "l2", "l3"]
         }) + "<hr />";
 
-    document.getElementById("results").innerHTML += mTmpl1.parseTemplate('template',
+    document.getElementById("results").innerHTML += mtemplate.parse('template',
         {
             header : "test3",
             list : ["l1", "l2", "l3"]
