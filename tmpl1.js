@@ -1,11 +1,10 @@
-var mtemplate = (function() {
-  var fncache = { };
-
+var mTemplate = (function() {
+  var locvar = '_', fncache = {};
   return {
     parse : function (id, data) {
         var cacheId = 't1_' + id;
         if ( !fncache[cacheId] ) {
-            fncache[cacheId] = new Function("_",
+            fncache[cacheId] = new Function(locvar,
                 "var p='" +
                 document.getElementById(id).innerHTML
                 .replace(/[\r\t\n]/g, " ")
@@ -18,6 +17,5 @@ var mtemplate = (function() {
                 + "';return p;");
         }
         return data ? (fncache[cacheId])(data) : fncache[cacheId];
-    }
-  };
+    }};
 })();

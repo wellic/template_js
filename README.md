@@ -1,8 +1,6 @@
 # template_js
 2 versions of micro template system for javascript without dependencies.
 
-See example: http://wellic.github.io/template_js/
-
 Initial sources:
   * http://ejohn.org/blog/javascript-micro-templating/
   * http://weblog.west-wind.com/posts/2008/Oct/13/Client-Templating-with-jQuery
