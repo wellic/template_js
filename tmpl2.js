@@ -1,13 +1,12 @@
 var mTemplate = (function() {
-  var fncache = {};
+  var cache = {};
   return {
     parse : function (id, data) {
-        var cacheId = 't1_' + id;
-        if ( !fncache[cacheId] ) {
-            fncache[cacheId] = new Function("o",
+        if ( !/^\w+$/.test(id) ) return null;
+        if ( !cache[id] )
+            cache[id] = new Function("o",
                 "var p=[],print=function(){p.push.apply(p,arguments);};"
-                + "with(o){p.push('" +
-                document.getElementById(id).innerHTML
+                +"with(o){p.push('"+document.getElementById(id).innerHTML
                 .replace(/[\r\t\n]/g, " ")
                 .replace(/'(?=[^#]*#>)/g, "\t")
                 .split("'").join("\\'")
@@ -16,8 +15,6 @@ var mTemplate = (function() {
                 .split("<#").join("');")
                 .split("#>").join("p.push('")
                 + "');}return p.join('');");
-        }
-        return data ? (fncache[cacheId])(data) : fncache[cacheId];
-    }
-  };
+        return data ? (cache[id])(data) : cache[id];
+    }};
 })();

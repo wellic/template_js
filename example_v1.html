@@ -6,10 +6,10 @@
   
 <script type="text/template" id="template">
   <div>
-  <h2 class='header'><#= _.header #></h2>
+  <h2 class='header'><#= data.header #></h2>
     <ul class='list'>
-      <# for (var i = 0, l = _.list.length; i < l; i++) { #>
-        <li class='item'><#= _.list[i] #></li>
+      <# for (var i = 0, l = data.list.length; i < l; i++) { #>
+        <li class='item'><#= data.list[i] #></li>
       <# } #>
     </ul>
   </div>

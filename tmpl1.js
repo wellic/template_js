@@ -1,12 +1,12 @@
-var mTemplate = (function() {
-  var locvar = '_', fncache = {};
+var mTemplate = (function(_var) {
+  _var = _var || 'data';
+  var cache = {};
   return {
     parse : function (id, data) {
-        var cacheId = 't1_' + id;
-        if ( !fncache[cacheId] ) {
-            fncache[cacheId] = new Function(locvar,
-                "var p='" +
-                document.getElementById(id).innerHTML
+        if ( !/^\w+$/.test(id) ) return null;
+        if ( !cache[id] )
+            cache[id] = new Function(_var,
+                "var p='" + document.getElementById(id).innerHTML
                 .replace(/[\r\t\n]/g, " ")
                 .replace(/'(?=[^#]*#>)/g, "\t")
                 .split("'").join("\\'")
@@ -15,7 +15,6 @@ var mTemplate = (function() {
                 .split("<#").join("';")
                 .split("#>").join("p+='")
                 + "';return p;");
-        }
-        return data ? (fncache[cacheId])(data) : fncache[cacheId];
+        return data ? (cache[id])(data) : cache[id];
     }};
 })();
